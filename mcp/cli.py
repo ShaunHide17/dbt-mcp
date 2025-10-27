@@ -21,8 +21,8 @@ async def main() -> None:
 
     # Local dbt MCP server over stdio
     dbt_server = MCPServerStdio(
-        command="uvx",
-        args=["dbt-mcp"],
+        command="/Users/shaunhide/projects/data/.venv/bin/dbt-mcp",
+        args=[],
         env={
             "DBT_PROJECT_DIR": "/Users/shaunhide/projects/data/transforms",
             "DBT_PROFILES_DIR": "/Users/shaunhide/projects/data/transforms/profiles",
