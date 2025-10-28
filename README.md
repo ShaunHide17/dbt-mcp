@@ -27,4 +27,5 @@ export DBT_POSTGRES_PASSWORD=password_goes_here
 export DBT_POSTGRES_PORT=port_goes_here
 export DBT_POSTGRES_DB=database_goes_here
 export DBT_POSTGRES_SCHEMA=schema_goes_here
+
 ```
