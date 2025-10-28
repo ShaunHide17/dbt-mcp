@@ -88,7 +88,10 @@ async def main():
         return
     
     print("\nInitializing agent...")
-    server = MCPServerStreamableHTTP(url=mcp_server_url, headers=mcp_server_headers)
+    server = MCPServerStreamableHTTP(
+        url=mcp_server_url,
+        headers=mcp_server_headers
+    )
     
     # Use a valid OpenAI model
     agent = Agent(
