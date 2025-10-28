@@ -20,6 +20,7 @@ async def test_mcp_connection(url: str, headers: dict) -> bool:
         async with httpx.AsyncClient() as client:
             response = await client.get(url, headers=headers, timeout=10.0)
             print(f"✓ Server connection test: {response.status_code}")
+            print(f"Response headers: {response.content}")
             return response.status_code < 500
     except Exception as e:
         print(f"✗ Connection test failed: {e}")
@@ -36,8 +37,27 @@ async def main():
     
     # Get credentials
     token = os.getenv("DBT_TOKEN")
-    prod_environment_id = os.getenv("DBT_PROD_ENV_ID")
+    prod_environment_id = os.getenv("DBT_PROD_ENV_ID", "").strip()  # Strip whitespace
     host = os.getenv("DBT_HOST", "cloud.getdbt.com")
+
+    # Validate required variables
+    if not token:
+        print("ERROR: DBT_TOKEN not found in environment")
+        print("Please set DBT_TOKEN in your .env file")
+        return
+
+    if not prod_environment_id:
+        print("ERROR: DBT_PROD_ENV_ID not found in environment")
+        print("Please set DBT_PROD_ENV_ID in your .env file")
+        return
+
+    # Validate it's a valid integer
+    try:
+        int(prod_environment_id)
+    except ValueError:
+        print(f"ERROR: DBT_PROD_ENV_ID must be an integer, got: '{prod_environment_id}'")
+        print("Please check your .env file for extra characters or quotes")
+        return
     
     # Validate required variables
     if not token:
@@ -45,10 +65,6 @@ async def main():
         print("Please set DBT_TOKEN in your .env file")
         return
     
-    if not prod_environment_id:
-        print("ERROR: DBT_PROD_ENV_ID not found in environment")
-        print("Please set DBT_PROD_ENV_ID in your .env file")
-        return
     
     print(f"Configuration:")
     print(f"  Host: {host}")
@@ -76,7 +92,7 @@ async def main():
     
     # Use a valid OpenAI model
     agent = Agent(
-        "openai:gpt-4o",  # Changed from gpt-5 which doesn't exist
+        model=os.getenv("OPENAI_MODEL"),
         toolsets=[server],
         system_prompt="You are a helpful AI assistant with access to MCP tools for dbt.",
     )
