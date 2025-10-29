@@ -397,6 +397,7 @@ dependencies = [
     { name = "dbt" },
     { name = "dbt-core" },
     { name = "dbt-postgres" },
+    { name = "faker" },
     { name = "mcp" },
     { name = "pydantic-ai" },
     { name = "pydantic-ai-slim", extra = ["mcp"] },
@@ -409,6 +410,7 @@ requires-dist = [
     { name = "dbt", specifier = ">=1.0.0.40.7" },
     { name = "dbt-core", specifier = ">=1.10.13" },
     { name = "dbt-postgres", specifier = ">=1.9.1" },
+    { name = "faker", specifier = ">=37.12.0" },
     { name = "mcp", specifier = ">=1.10.1" },
     { name = "pydantic-ai", specifier = ">=0.7.2" },
     { name = "pydantic-ai-slim", extras = ["mcp"], specifier = ">=0.7.2" },
@@ -608,6 +610,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/30/ea/8b0ac4469d4c347c6a385ff09dc3c048c2d021696664e26c7ee6791631b5/eval_type_backport-0.2.2.tar.gz", hash = "sha256:f0576b4cf01ebb5bd358d02314d31846af5e07678387486e2c798af0e7d849c1", size = 9079 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ce/31/55cd413eaccd39125368be33c46de24a1f639f2e12349b0361b4678f3915/eval_type_backport-0.2.2-py3-none-any.whl", hash = "sha256:cb6ad7c393517f476f96d456d0412ea80f0a8cf96f6892834cd9340149111b0a", size = 5830 },
+]
+
+[[package]]
+name = "faker"
+version = "37.12.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "tzdata" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3d/84/e95acaa848b855e15c83331d0401ee5f84b2f60889255c2e055cb4fb6bdf/faker-37.12.0.tar.gz", hash = "sha256:7505e59a7e02fa9010f06c3e1e92f8250d4cfbb30632296140c2d6dbef09b0fa", size = 1935741 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8e/98/2c050dec90e295a524c9b65c4cb9e7c302386a296b2938710448cbd267d5/faker-37.12.0-py3-none-any.whl", hash = "sha256:afe7ccc038da92f2fbae30d8e16d19d91e92e242f8401ce9caf44de892bab4c4", size = 1975461 },
 ]
 
 [[package]]
