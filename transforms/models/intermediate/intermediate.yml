@@ -6,7 +6,7 @@ models:
       Intermediate model that generates a table of dates from the current date to 1 year ago.
       This is used to generate the date dimension for the transactions table.
     columns:
-      - name: date
+      - name: date_day
         description: "The date"
         data_tests:
           - not_null
