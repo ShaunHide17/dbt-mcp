@@ -1,0 +1,158 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Customers staging model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: salutation
+        description: "The salutation of the customer"
+        data_tests:
+          - not_null
+      - name: first_name
+        description: "The first name of the customer"
+        data_tests:
+          - not_null
+      - name: last_name
+        description: "The last name of the customer"
+        data_tests:
+          - not_null
+      - name: email
+        description: "The email of the customer"
+        data_tests:
+          - not_null
+      - name: phone
+        description: "The phone number of the customer"
+        data_tests:
+          - not_null
+      - name: created_at
+        description: "The date and time the customer was created"
+        data_tests:
+          - not_null
+      - name: updated_at
+        description: "The date and time the customer was updated"
+        data_tests:
+          - not_null
+
+  - name: stg_products
+    description: "Products staging model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        description: "The name of the product"
+        data_tests:
+          - not_null
+      - name: brand
+        description: "The brand of the product"
+        data_tests:
+          - not_null
+      - name: category
+        description: "The category of the product"
+        data_tests:
+          - not_null
+      - name: description
+        description: "The description of the product"
+        data_tests:
+          - not_null
+      - name: price
+        description: "The price of the product"
+        data_tests:
+          - not_null
+      - name: created_at
+        description: "The date and time the product was created"
+        data_tests:
+          - not_null
+      - name: updated_at
+        description: "The date and time the product was updated"
+        data_tests:
+          - not_null
+
+  - name: stg_stores
+    description: "Stores staging model"
+    columns:
+      - name: id
+        description: "The primary key for this table" 
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        description: "The name of the store"
+        data_tests:
+          - not_null
+      - name: address
+        description: "The address of the store"
+        data_tests:
+          - not_null
+      - name: city
+        description: "The city of the store"
+        data_tests:
+          - not_null
+      - name: postcode
+        description: "The postcode of the store"
+        data_tests:
+          - not_null
+      - name: country
+        description: "The country of the store"
+        data_tests:
+          - not_null
+      - name: created_at
+        description: "The date and time the store was created"
+        data_tests:
+          - not_null
+      - name: updated_at
+        description: "The date and time the store was updated"
+        data_tests:
+          - not_null
+
+  - name: stg_transactions
+    description: "Transactions staging model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "The ID of the customer"
+        data_tests:
+          - not_null
+      - name: product_id
+        description: "The ID of the product"
+        data_tests:
+          - not_null
+      - name: store_id
+        description: "The ID of the store"
+        data_tests:
+          - not_null
+      - name: transaction_date
+        description: "The date and time the transaction was made"
+        data_tests:
+          - not_null
+      - name: amount
+        description: "The amount of the transaction"
+        data_tests:
+          - not_null
+      - name: currency
+        description: "The currency of the transaction"
+        data_tests:
+          - not_null
+      - name: payment_method
+        description: "The method of payment used for the transaction"
+        data_tests:
+          - not_null
+      - name: payment_status
+        description: "The status of the payment"
+        data_tests:
+          - not_null
+      - name: payment_reference
+        description: "The reference of the payment"
+        data_tests:
+          - not_null

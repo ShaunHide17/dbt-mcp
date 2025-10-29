@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: dev
+    database: defaultdb
+    schema: dev
+    description: "Raw data from the source system"
+    tables:
+      - name: customers
+        description: "Customers table"
+
+      - name: products
+        description: "Products table"
+
+      - name: stores
+        description: "Stores table"
+
+      - name: transactions
+        description: "Transactions table"

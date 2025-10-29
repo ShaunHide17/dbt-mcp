@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: int_dates
+    description: |
+      Intermediate model that generates a table of dates from the current date to 1 year ago.
+      This is used to generate the date dimension for the transactions table.
+    columns:
+      - name: date
+        description: "The date"
+        data_tests:
+          - not_null
+      - name: date_month
+        description: "The month of the date"
+        data_tests:
+          - not_null
+      - name: date_year
+        description: "The year of the date"
+        data_tests:
+          - not_null
+      - name: date_day_of_week
+        description: "The day of the week of the date"
+        data_tests:
+          - not_null
+      - name: date_day_of_month
+        description: "The day of the month of the date"
+        data_tests:
+          - not_null
+      - name: date_day_of_year
+        description: "The day of the year of the date"
+        data_tests:
+          - not_null
+  - name: int_transactions
+    description: |
+      Intermediate model that denormalizes the transactions table by joining it with the customers, products, and stores tables.
+    columns:
+      - name: id
+        description: "The ID of the transaction"
+        data_tests:
+          - not_null
+      - name: customer_name
+        description: "The name of the customer"
+        data_tests:
+          - not_null
+      - name: product_name
+        description: "The name of the product"
+        data_tests:
+          - not_null
+      - name: store_name
+        description: "The name of the store"
+        data_tests:
+          - not_null
+      - name: transaction_date
+        description: "The date and time the transaction was made"
+        data_tests:
+          - not_null
+      - name: amount
+        description: "The amount of the transaction"
+        data_tests:
+          - not_null
+      - name: currency
+        description: "The currency of the transaction"
+        data_tests:
+          - not_null
+      - name: payment_method
+        description: "The method of payment used for the transaction"
+        data_tests:
+          - not_null
+      - name: payment_status
+        description: "The status of the payment"
+        data_tests:
+          - not_null
+      - name: payment_reference
+        description: "The reference of the payment"
+        data_tests:
+          - not_null

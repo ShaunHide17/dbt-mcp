@@ -72,7 +72,7 @@ def generate_data():
             "store_id": fake.random_element(elements=stores_df['id']),
             "transaction_date": fake.date_time_between(start_date='-1y', end_date='now').isoformat(),
             "amount": round(random.random() * 500, 2),
-            "currency": fake.currency_code(),
+            "currency": "GBP",
             "payment_method": fake.random_element(elements=('Credit Card', 'Debit Card', 'Cash', 'Other')),
             "payment_status": fake.random_element(elements=('Pending', 'Completed', 'Failed')),
             "payment_reference": fake.uuid4(),

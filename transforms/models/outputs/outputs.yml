@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: out_daily_summary
+    description: "Daily summary of transactions"
+    columns:
+      - name: date
+        description: "The date"
+        data_tests:
+          - not_null
+      - name: total_amount
+        description: "The total amount of transactions"
+        data_tests:
+          - not_null
+      - name: total_customers
+        description: "The total number of customers"
+        data_tests:
+          - not_null
+      - name: total_products
+        description: "The total number of products"
+        data_tests:
+          - not_null
+      - name: total_stores
+        description: "The total number of stores"
+        data_tests:
+          - not_null
+  - name: out_daily_summary_by_store
+    description: "Daily summary of transactions by store"
+    columns:
+      - name: date
+        description: "The date"
+        data_tests:
+          - not_null
+      - name: store_name
+        description: "The name of the store"
+        data_tests:
+          - not_null
+      - name: total_amount
+        description: "The total amount of transactions"
+        data_tests:
+          - not_null
+      - name: total_customers
+        description: "The total number of customers"
+        data_tests:
+          - not_null
+      - name: total_products
+        description: "The total number of products"
+        data_tests:
+          - not_null
+  - name: out_product_summary
+    description: "Summary of transactions by product"
+    columns:
+      - name: product_name
+        description: "The name of the product"
+        data_tests:
+          - not_null
+      - name: total_amount
+        description: "The total amount of transactions"
+        data_tests:
+          - not_null
